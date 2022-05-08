@@ -4,10 +4,13 @@ import Table from './Table';
 
 require('dotenv').config();
 
+const thisEnvoironment = (process.env.DEV_ENVOIRONMENT === 'true');
 const hawkinsUrl = process.env.REACT_APP_HAWKINS_URL;
 const hawkinsTimeOut = process.env.REACT_APP_HAWKINS_TIMEOUT;
 const upSideDownUrl = process.env.REACT_APP_UPSIDEDOWN_URL;
 const upSideDownTimeOut = process.env.REACT_APP_UPSIDEDOWN_TIMEOUT;
+
+console.log(thisEnvoironment);
 
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
@@ -35,6 +38,7 @@ class StrangerThings extends React.Component {
       characterName: '',
       characters: [],
       page: 1,
+      envoironment: thisEnvoironment,
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -112,7 +116,7 @@ class StrangerThings extends React.Component {
 
   render() {
     const {
-      hereIsTheUpsideDownWorld, characterName, characters, page,
+      hereIsTheUpsideDownWorld, characterName, characters, page, envoironment,
     } = this.state;
     return (
       <div
@@ -121,6 +125,7 @@ class StrangerThings extends React.Component {
         )}` }
       >
         <div className="content strangerfy">
+          {envoironment === true && (<h3>Em desenvolvimento</h3>)}
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
               {' '}
