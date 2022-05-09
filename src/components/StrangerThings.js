@@ -4,11 +4,7 @@ import Table from './Table';
 
 import 'dotenv/config';
 
-// require('dotenv').config();
-
-console.log(process.env.DEV_ENVOIRONMENT);
 const thisEnvoironment = (process.env.DEV_ENVOIRONMENT === 'true');
-console.log(thisEnvoironment);
 const hawkinsUrl = process.env.REACT_APP_HAWKINS_URL;
 const hawkinsTimeOut = process.env.REACT_APP_HAWKINS_TIMEOUT;
 const upSideDownUrl = process.env.REACT_APP_UPSIDEDOWN_URL;
