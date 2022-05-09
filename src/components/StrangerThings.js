@@ -2,9 +2,13 @@ import React from 'react';
 import CharactersService from '../services/charactersAPI';
 import Table from './Table';
 
-import 'dotenv/config';
+// import 'dotenv/config';
 
-const thisEnvoironment = (process.env.DEV_ENVOIRONMENT === 'true');
+require('dotenv').config();
+
+console.log(process.env.REACT_APP_DEV_ENVOIRONMENT);
+const thisEnvoironment = (process.env.REACT_APP_DEV_ENVOIRONMENT === 'true');
+console.log(thisEnvoironment);
 const hawkinsUrl = process.env.REACT_APP_HAWKINS_URL;
 const hawkinsTimeOut = process.env.REACT_APP_HAWKINS_TIMEOUT;
 const upSideDownUrl = process.env.REACT_APP_UPSIDEDOWN_URL;
